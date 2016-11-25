@@ -1,0 +1,10 @@
+.ad-text {
+  color: purple;
+  font-size: 3em;
+  position: absolute;
+  max-width: 100%;
+}
+
+.slick-initialized .slick-slide {
+    position: relative;
+}
