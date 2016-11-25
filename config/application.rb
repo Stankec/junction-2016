@@ -2,6 +2,7 @@ require_relative 'boot'
 
 require 'rails/all'
 require_relative '../app/data_objects/secrets'
+require 'susy'
 
 Bundler.require(*Rails.groups)
 
