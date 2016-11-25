@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    links:
+      - db
+    env_file: .env
+    environment:
+      - DATABASE_HOST=db
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
