@@ -1,24 +1,8 @@
-# README
+# Junction 2016
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project goal:
 
-Things you may want to cover:
+Creat an app that can aggrgate the preferences of users in a certain location
+and determine their common interests.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This data is then used to show ads that are relevant to the user group.
