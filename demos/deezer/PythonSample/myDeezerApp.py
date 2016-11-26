@@ -2,6 +2,8 @@
 # coding: utf8
 
 from wrapper.deezer_player import *
+import urllib2
+import json
 
 class MyDeezerApp(object):
     """
@@ -63,22 +65,15 @@ class MyDeezerApp(object):
         if self.debug_mode:
             print message
 
-    def process_command(self, command):
+    def process_search(self, search_term):
         """Dispatch commands to corresponding function
         :param command: the command parameters
         :type command: str
         """
-        c = ''.join(command.splitlines())
-        call = {
-            'S': self.playback_start_stop,
-            'P': self.playback_play_pause,
-            '+': self.playback_next,
-            '-': self.playback_previous,
-            'R': self.playback_toggle_repeat,
-            '?': self.playback_toggle_random,
-            'Q': self.shutdown
-        }
-        call.get(c)()
+        tracks = json.loads(urllib2.urlopen("https://api.deezer.com/search/?order=ranking&access_token=frbLjlQSJl8fYix1vQxESAIUPTq9JxUSi87SAtl58l10nbAsg2&q=" + search_term).read().decode("utf-8"))
+        track = tracks["data"][0]["id"]
+        self.load_content("dzmedia:///track/" + str(track))
+        self.playback_start_stop()
 
     def playback_start_stop(self):
         if not self.player.is_playing:
