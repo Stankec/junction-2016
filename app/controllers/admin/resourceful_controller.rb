@@ -3,8 +3,7 @@ module Admin
     def index
       @collection = scope
                     .order(order)
-                    .page(params[:page])
-                    .per(per_page)
+                    .paginate(page: params[:page], per_page: per_page)
     end
 
     def show

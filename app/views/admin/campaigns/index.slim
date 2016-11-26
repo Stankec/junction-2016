@@ -1,3 +1,5 @@
+h1 Campaigns
+
 .row
   .col-xs-12
     table.table.table-striped
@@ -6,10 +8,9 @@
           th Name
           th
             .pull-right
-              - if policy(@museums).new?
-                = link_to [:new, :admin, :campaign], class: 'btn btn-xs btn-primary' do
-                  = icon(:plus)
-                  | Add
+              = link_to [:new, :admin, :campaign], class: 'btn btn-xs btn-primary' do
+                = icon(:plus)
+                | Add
       tbody
         - @collection.each do |campaign|
           = render 'row', campaign: campaign

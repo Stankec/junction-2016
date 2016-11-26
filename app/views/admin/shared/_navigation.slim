@@ -1,0 +1,20 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed data-toggle="collapse" data-target="#navigation"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      = link_to admin_root_path, class: 'navbar-brand' do
+        | Junction 2016
+
+    .collapse.navbar-collapse#navigation
+      ul.nav.navbar-nav.navbar-right
+        = active_link_to [:admin, :campaigns], active: :inclusive, wrap_tag: :li do
+          = icon('file-text-o')
+          | Campaigns
+        = active_link_to [:admin, :locations], active: :inclusive, wrap_tag: :li do
+          = icon('map-marker')
+          | Locations

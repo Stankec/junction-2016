@@ -6,4 +6,6 @@ html
     = javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload'
 
   body
-    = yield
+    = render 'admin/shared/navigation'
+    .container
+      = yield
