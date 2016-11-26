@@ -1,0 +1,10 @@
+tr
+  td = location.name
+  td
+    .pull-right
+      = link_to [:edit, :admin, location], class: 'btn btn-xs btn-warning'
+        = icon(:edit)
+        | Edit
+      = link_to [:admin, location], class: 'btn btn-xs btn-danger', method: :delete
+        = icon('trash-o')
+        | Delete

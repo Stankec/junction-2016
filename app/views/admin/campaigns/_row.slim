@@ -2,6 +2,9 @@ tr
   td = campaign.name
   td
     .pull-right
-      = link_to [:admin, :edit, campaign], class: 'btn btn-xs btn-warning'
+      = link_to [:edit, :admin, campaign], class: 'btn btn-xs btn-warning'
         = icon(:edit)
         | Edit
+      = link_to [:admin, campaign], class: 'btn btn-xs btn-danger', method: :delete
+        = icon('trash-o')
+        | Delete
