@@ -1,0 +1,7 @@
+tr
+  td = campaign.name
+  td
+    .pull-right
+      = link_to [:admin, :edit, campaign], class: 'btn btn-xs btn-warning'
+        = icon(:edit)
+        | Edit

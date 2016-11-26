@@ -1,0 +1,33 @@
+= simple_form_for [:admin, campaign] do |f|
+  .row
+    .col-xs-12
+      =f.input :name
+
+  .row
+    .col-xs-12
+      = f.input :site, as: :shrine
+
+    - if f.object.site && f.object.site.exists?
+      .col-xs-12
+        = link_to f.object.site.url, class: 'btn btn-success btn-lg'
+          = icon('download')
+          | Download
+
+  .row
+    .col-xs-12
+      hr
+
+      button.btn.btn-success.btn-lg
+        = icon('check')
+        | Save
+
+      = link_to [:admin, :users], class: 'btn btn-primary btn-lg'
+        = icon('chevron-left')
+        | Back
+
+    .col-xs-12
+      - if f.object.created_at.present?
+        p.help-block Created at: #{f.object.created_at}
+
+      - if f.object.updated_at.present?
+        p.help-block Updated at: #{f.object.updated_at}
