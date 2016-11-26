@@ -3,18 +3,23 @@ function ajaxAdsBeforeSend(xhr){
 }
 
 function ajaxAdsSuccess(data){
-  if($("#clothes1").attr("src") == ""){
-    $("#clothes1-text").html(data.content[0].name + "<br>Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
-    $("#clothes1").attr("src", data.content[0].media.images[0].largeUrl);
-  }else if($("#clothes2").attr("src") == ""){
-    $("#clothes2-text").html(data.content[0].name + "<br>Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
-    $("#clothes2").attr("src", data.content[0].media.images[0].largeUrl);
-  }else if($("#clothes3").attr("src") == ""){
-    $("#clothes3-text").html(data.content[0].name + "<br>Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
-    $("#clothes3").attr("src", data.content[0].media.images[0].largeUrl);
-  }else if($("#clothes4").attr("src") == ""){
-    $("#clothes4-text").html(data.content[0].name + "<br>Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
-    $("#clothes4").attr("src", data.content[0].media.images[0].largeUrl);
+  var name = data.content[0].name.split("-")[0];
+  if($("#clothes1-1").attr("src") == ""){
+    $("#clothes1-text").html(name);
+    $("#clothes1-price").html("Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
+    $("#clothes1-1").attr("src", data.content[0].media.images[0].largeUrl);
+  }else if($("#clothes2-1").attr("src") == ""){
+    $("#clothes2-text").html(name);
+    $("#clothes2-price").html("Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
+    $("#clothes2-1").attr("src", data.content[0].media.images[0].largeUrl);
+  }else if($("#clothes3-1").attr("src") == ""){
+    $("#clothes3-text").html(name);
+    $("#clothes3-price").html("Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
+    $("#clothes3-1").attr("src", data.content[0].media.images[0].largeUrl);
+  }else if($("#clothes4-1").attr("src") == ""){
+    $("#clothes4-text").html(name);
+    $("#clothes4-price").html("Only " + data.content[0].units[0].price.value + " " + data.content[0].units[0].price.currency + "!");
+    $("#clothes4-1").attr("src", data.content[0].media.images[0].largeUrl);
   }
 }
 
@@ -55,13 +60,13 @@ $(document).ready(function() {
     type: "GET",
     success: ajaxDataSuccess
   });
-//  ajaxDataSuccess({"zalando1":"chuck", "zalando2":"nike", "zalando3":"puma", "zalando4":"adiddas"});
+  ajaxDataSuccess({"zalando1":"zara", "zalando2":"new yorker", "zalando3":"levis", "zalando4":"converse"});
 
   $('.carousel').slick({
     arrows: false,
     pauseOnFocus: false,
     pauseOnHover: false,
-    autoplay: true,
+//    autoplay: true,
     autoplaySpeed: 10000,
   });
 });
