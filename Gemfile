@@ -19,6 +19,7 @@ gem 'zip-zip'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks', '~> 5'
 gem 'gmaps4rails'
 gem 'underscore-rails'
