@@ -1,0 +1,20 @@
+h1 Mappings
+
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th
+            .pull-right
+              = link_to [:new, :admin, :mapping], class: 'btn btn-xs btn-primary' do
+                = icon(:plus)
+                | Add
+      tbody
+        - @collection.each do |mapping|
+          = render 'row', mapping: mapping
+
+  .col-xs-12
+    .pagination-container
+      = will_paginate @collection, renderer: BootstrapPagination::Rails

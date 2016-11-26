@@ -1,0 +1,10 @@
+tr
+  td = mapping.display_name
+  td
+    .pull-right
+      = link_to [:edit, :admin, mapping], class: 'btn btn-xs btn-warning'
+        = icon(:edit)
+        | Edit
+      = link_to [:admin, mapping], class: 'btn btn-xs btn-danger', method: :delete
+        = icon('trash-o')
+        | Delete

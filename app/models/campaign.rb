@@ -11,6 +11,7 @@
 
 class Campaign < ApplicationRecord
   include SiteUploader[:site]
+  acts_as_taggable
 
   validates :name, presence: true
   validates :site, presence: true

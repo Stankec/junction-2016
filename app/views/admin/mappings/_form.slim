@@ -1,0 +1,29 @@
+= simple_form_for [:admin, mapping] do |f|
+  .row
+    .col-md-6
+      = f.input :display_name
+    .col-md-6
+      = f.input :twitter_user_id
+
+  .row
+    .col-xs-12
+      = f.input :tag_list, as: :text
+
+  .row
+    .col-xs-12
+      hr
+
+      button.btn.btn-success.btn-lg
+        = icon('check')
+        | Save
+
+      = link_to [:admin, :mappings], class: 'btn btn-primary btn-lg'
+        = icon('chevron-left')
+        | Back
+
+    .col-xs-12
+      - if f.object.created_at.present?
+        p.help-block Created at: #{f.object.created_at}
+
+      - if f.object.updated_at.present?
+        p.help-block Updated at: #{f.object.updated_at}

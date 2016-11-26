@@ -18,3 +18,6 @@ nav.navbar.navbar-default
         = active_link_to [:admin, :locations], active: :inclusive, wrap_tag: :li do
           = icon('map-marker')
           | Locations
+        = active_link_to [:admin, :mappings], active: :inclusive, wrap_tag: :li do
+          = icon('tags')
+          | Mappings
