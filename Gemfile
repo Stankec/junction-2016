@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'annotate'
   gem 'listen', '~> 3.0.5'
 end
 
