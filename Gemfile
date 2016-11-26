@@ -13,9 +13,13 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'slim-rails'
 gem 'active_link_to'
+gem 'rubyzip', '>= 1.0.0'
+gem 'zip-zip'
+
 
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'turbolinks', '~> 5'
 gem 'gmaps4rails'
 gem 'underscore-rails'
