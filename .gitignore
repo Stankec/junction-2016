@@ -17,3 +17,6 @@
 
 # Ignore development data
 /db/data
+
+# Ignore uploads
+/public/uploads

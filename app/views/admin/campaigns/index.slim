@@ -1,0 +1,20 @@
+h1 Campaigns
+
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th
+            .pull-right
+              = link_to [:new, :admin, :campaign], class: 'btn btn-xs btn-primary' do
+                = icon(:plus)
+                | Add
+      tbody
+        - @collection.each do |campaign|
+          = render 'row', campaign: campaign
+
+  .col-xs-12
+    .pagination-container
+      = will_paginate @collection, renderer: BootstrapPagination::Rails

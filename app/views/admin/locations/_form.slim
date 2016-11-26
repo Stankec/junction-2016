@@ -1,0 +1,36 @@
+= simple_form_for [:admin, campaign] do |f|
+  .row
+    .col-xs-12
+      = f.input :name
+    .col-xs-12
+      = f.input :radius
+
+  .row
+    .col-xs-12
+      = f.label :location
+      = text_field_tag :search, nil, id: :location_search
+    .col-xs-12
+      .map#map data-map='true' data-search-field="#location_search" data-picker="true" data-latitude-input="#location_latitude" data-longitude-input="#location_longitude"
+    .col-md-6
+      = f.input :longitude
+    .col-md-6
+      = f.input :latitude
+
+  .row
+    .col-xs-12
+      hr
+
+      button.btn.btn-success.btn-lg
+        = icon('check')
+        | Save
+
+      = link_to [:admin, :campaigns], class: 'btn btn-primary btn-lg'
+        = icon('chevron-left')
+        | Back
+
+    .col-xs-12
+      - if f.object.created_at.present?
+        p.help-block Created at: #{f.object.created_at}
+
+      - if f.object.updated_at.present?
+        p.help-block Updated at: #{f.object.updated_at}

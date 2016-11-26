@@ -3,8 +3,7 @@ module Admin
     def index
       @collection = scope
                     .order(order)
-                    .page(params[:page])
-                    .per(per_page)
+                    .paginate(page: params[:page], per_page: per_page)
     end
 
     def show
@@ -18,7 +17,7 @@ module Admin
     def create
       @record ||= scope.new(permitted_params)
       if @record.save
-        redirect_to [:admin, @record]
+        redirect_to [:admin, index_key]
       else
         render 'new'
       end
@@ -31,7 +30,7 @@ module Admin
     def update
       @record ||= load_record
       if @record.update(permitted_params)
-        redirect_to [:admin, @record]
+        redirect_to [:admin, index_key]
       else
         render 'new'
       end
@@ -40,7 +39,6 @@ module Admin
     def destroy
       @record ||= load_record
       @record.destroy
-      index_key = model_name.pluralize.to_sym
       redirect_to [:admin, index_key]
     end
 
@@ -64,6 +62,10 @@ module Admin
           self.class.name.gsub!('Admin::', '').gsub!('Controller', '')
         controller_name.singularize
       end
+    end
+
+    def index_key
+      @index_key ||= model_name.pluralize.downcase.to_sym
     end
 
     def model_class
