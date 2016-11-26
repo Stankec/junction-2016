@@ -1,0 +1,2 @@
+class SiteUploader < Shrine
+end

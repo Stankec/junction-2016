@@ -10,4 +10,5 @@
 #
 
 class Campaign < ApplicationRecord
+  include SiteUploader[:site]
 end
