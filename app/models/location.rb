@@ -11,6 +11,8 @@
 #
 
 class Location < ApplicationRecord
+  attribute :location, :legacy_point
+
   has_many :location_campaigns, dependent: :destroy
   has_many :campaigns, through: :location_campaigns
 
