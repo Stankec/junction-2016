@@ -7,7 +7,45 @@ body{
 }
 
 .campaign {
-  height: 100vh;
-  width: 100vw;
   border: 0;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.information {
+  background-color: #0074D9;
+  height: 10vh;
+  overflow: hidden;
+  position: relative;
+
+  &__group {
+    position: absolute;
+    max-height: 100%;
+    width: auto;
+
+    h2 {
+      font-size: .7em;
+    }
+
+    &--right {
+      right: 0;
+    }
+
+    &__card {
+      &__image {
+        img {
+          max-height: 100%;
+          width: auto;
+        }
+      }
+
+      &__info {
+        h2 {
+          font-size: .7em;
+        }
+
+      }
+    }
+  }
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126224125) do
+ActiveRecord::Schema.define(version: 20161127090732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20161126224125) do
     t.string   "name"
     t.point    "location"
     t.float    "radius"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "latest_tweet_id"
   end
 
   create_table "mappings", force: :cascade do |t|

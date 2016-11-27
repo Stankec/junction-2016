@@ -8,15 +8,21 @@ class LocationCampaignRait
 
   def call
     mappings = Mapping.where(twitter_user_id: interest_ids_of_nearby_users.keys)
-    location.touch
+    update_latest_id
+
     tags = mappings.flat_map(&:tag_list)
-    campaigns = Campaign.tagged_with(tags.uniq)
+    campaigns = Campaign.tagged_with(tags.uniq, any: true)
     tags_count = array_count(tags)
 
     update_location_campigns(campaigns, tags_count)
   end
 
   private
+
+  def update_latest_id
+    return unless nearby_tweets.first
+    location.update(latest_tweet_id: nearby_tweets.first.id)
+  end
 
   def interest_ids_of_nearby_users
     @interest_ids_of_nearby_users ||= begin
@@ -34,11 +40,23 @@ class LocationCampaignRait
   end
 
   def nearby_users
-    @nearby_users ||= nearby_tweets.map(&:user).uniq.compact
+    @nearby_users ||= begin
+      sleep(1)
+      nearby_tweets.map(&:user).uniq.compact
+    end
   end
 
   def nearby_tweets
-    @nearby_tweets ||= client.search(catch_all_query, geocode: geocode)
+    @nearby_tweets ||= begin
+      sleep(1)
+      client.search(catch_all_query, **query_options).take(8)
+    end
+  end
+
+  def query_options
+    options = { geocode: geocode }
+    options[:since_id] = location.latest_tweet_id if location.latest_tweet_id
+    options
   end
 
   def client

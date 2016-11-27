@@ -15,7 +15,9 @@ module Public
       def location_data(location)
         {
           tags: tags(location),
-          campaigns: campaigns(location)
+          campaigns: campaigns(location),
+          next_transport: next_transport,
+          forecast: forecast
         }
       end
 
@@ -32,6 +34,23 @@ module Public
             tags: campaign.tag_list
           }
         end
+      end
+
+      def next_transport
+        (0...2).map do |index|
+          {
+            destination: ['Railway station', 'Airport', 'Museum'].sample,
+            arrival_time: (1..10).to_a.sample
+          }
+        end
+      end
+
+      def forecast
+        {
+          time_ahead: 3,
+          type: :scattered_clouds,
+          temperature: 7
+        }
       end
     end
   end
