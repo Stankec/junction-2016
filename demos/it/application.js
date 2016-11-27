@@ -1,17 +1,17 @@
 function it(company){
   var embed = '';
   if(company == "DigitalOcean"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/vHZLCahai4Q?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/vHZLCahai4Q?loop=1&playlist=vHZLCahai4Q&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }else if(company == "GitHub"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/tBEJrdtBU1Q?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/tBEJrdtBU1Q?loop=1&playlist=tBEJrdtBU1Q&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }else if(company == "Skype"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/kCRQ2sw0_3g?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/kCRQ2sw0_3g?loop=1&playlist=kCRQ2sw0_3g&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }else if(company == "Unity"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/dk8gpz0o5TU?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/dk8gpz0o5TU?loop=1&playlist=dk8gpz0o5TU&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }else if(company == "Microsoft"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/WAxH0YHdTuA?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/WAxH0YHdTuA?loop=1&playlist=WAxH0YHdTuA&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }else if(company == "Apple"){
-    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/Q6dsRpVyyWs?autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
+    embed = '<iframe id="' + company + '" class="video" src="https://www.youtube.com/embed/Q6dsRpVyyWs?loop=1&playlist=Q6dsRpVyyWs&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>';
   }
 
   if($("#video1").html().trim() === ""){
