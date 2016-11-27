@@ -22,6 +22,6 @@ function timeout1(){
 $(document).ready(function() {
   $("#frame1").hide();
   $("#frame2").hide();
-  setTimeout(timeout1, 40000);
+//  setTimeout(timeout1, 40000);
 });
 

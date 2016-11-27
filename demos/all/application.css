@@ -1,5 +1,9 @@
-#frame1,#frame2{
-  height: 100vh;
+body{
+  margin: 0;
+}
+
+#frame1,#frame2,#frame3{
+  height: 98vh;
   width: 100vw;
   border: 0;
 }

@@ -23,12 +23,12 @@ function it(company){
 
 $(document).ready(function() {
   it("DigitalOcean");
-//  it("Microsoft");
+  it("Microsoft");
   $('.carousel').slick({
     arrows: false,
     pauseOnFocus: false,
     pauseOnHover: false,
-//    autoplay: true,
+    autoplay: true,
     autoplaySpeed: 15000,
   });
 });
