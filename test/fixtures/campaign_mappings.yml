@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mapping: one
+  campaign: one
+  points: 1
+
+two:
+  mapping: two
+  campaign: two
+  points: 1
