@@ -21,9 +21,26 @@ function it(company){
   }
 }
 
+function ajaxDataSuccess(data){
+  var companies;
+  for(campaign in data.campaigns){
+    if(campaign.name === "IT"){
+      companies = campaign.tags;
+      break;
+    }
+  }
+  it(companies[0]);
+  it(companies[1]);
+}
+
 $(document).ready(function() {
-  it("DigitalOcean");
-  it("Microsoft");
+  var dataUrl = $(".campaigns").data("data-url");
+  $.ajax({
+    url: dataUrl,
+    type: "GET",
+    success: ajaxDataSuccess
+  });
+
   $('.carousel').slick({
     arrows: false,
     pauseOnFocus: false,

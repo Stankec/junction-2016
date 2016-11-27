@@ -24,30 +24,33 @@ function ajaxAdsSuccess(data){
 }
 
 function ajaxDataSuccess(data){
-  var clothes1 = data.zalando1;
-  var clothes2 = data.zalando2;
-  var clothes3 = data.zalando3;
-  var clothes4 = data.zalando4;
+  var clothes;
+  for(campaign in data.campaigns){
+    if(campaign.name === "Zalando"){
+      clothes = campaign.tags;
+      break;
+    }
+  }
   $.ajax({
-    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes1),
+    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes[0]),
     type: "GET",
     beforeSend: ajaxAdsBeforeSend,
     success: ajaxAdsSuccess
   });
   $.ajax({
-    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes2),
+    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes[1]),
     type: "GET",
     beforeSend: ajaxAdsBeforeSend,
     success: ajaxAdsSuccess
   });
   $.ajax({
-    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes3),
+    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes[2]),
     type: "GET",
     beforeSend: ajaxAdsBeforeSend,
     success: ajaxAdsSuccess
   });
   $.ajax({
-    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes4),
+    url: "https://api.zalando.com/articles/?sort=popularity&fields=name,media,units&fullText=" + encodeURIComponent(clothes[3]),
     type: "GET",
     beforeSend: ajaxAdsBeforeSend,
     success: ajaxAdsSuccess
@@ -55,12 +58,12 @@ function ajaxDataSuccess(data){
 }
 
 $(document).ready(function() {
+  var dataUrl = $(".campaigns").data("data-url");
   $.ajax({
-    url: "http://localhost:3000/data",
+    url: dataUrl,
     type: "GET",
     success: ajaxDataSuccess
   });
-  ajaxDataSuccess({"zalando1":"zara", "zalando2":"new yorker", "zalando3":"levis", "zalando4":"converse"});
 
   $('.carousel').slick({
     arrows: false,

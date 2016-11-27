@@ -30,9 +30,26 @@ function events(query){
    EVDB.API.call("/events/search", oArgs, adsSuccess);
 }
 
+function ajaxDataSuccess(data){
+  var queries;
+  for(campaign in data.campaigns){
+    if(campaign.name === "Eventful"){
+      queries = campaign.tags;
+      break;
+    }
+  }
+  events(queries[0]);
+  events(queries[1]);
+}
+
 $(document).ready(function() {
-  events("Sum 41");
-  events("Avenged Sevenfold");
+  var dataUrl = $(".campaigns").data("data-url");
+  $.ajax({
+    url: dataUrl,
+    type: "GET",
+    success: ajaxDataSuccess
+  });
+
   $('.carousel').slick({
     arrows: false,
     pauseOnFocus: false,
