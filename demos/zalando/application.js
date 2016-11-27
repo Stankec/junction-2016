@@ -57,8 +57,7 @@ function ajaxDataSuccess(data){
   });
 }
 
-$(document).ready(function() {
-  var dataUrl = $(".campaigns").data("data-url");
+function init(dataUrl) {
   $.ajax({
     url: dataUrl,
     type: "GET",
