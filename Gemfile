@@ -16,6 +16,7 @@ gem 'active_link_to'
 gem 'rubyzip', '>= 1.0.0'
 gem 'zip-zip'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'whenever', require: false
 
 
 gem 'coffee-rails', '~> 4.2'
