@@ -11,6 +11,7 @@ class CampaignSorter
   def call
     location
       .campaigns
+      .joins(:location_campaigns)
       .order(sort_sql)
   end
 
@@ -18,10 +19,10 @@ class CampaignSorter
 
   def sort_sql
     <<-SQL
-      (campaigns.points) /
+      (location_campaigns.points) /
       (
-        (campaigns.updated_at + #{TIME_OFFSET})^#{GRAVITY}
-      )
+        (extract(epoch from campaigns.updated_at) + #{TIME_OFFSET})^#{GRAVITY}
+      ) DESC
     SQL
   end
 end

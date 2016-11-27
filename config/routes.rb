@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'public/campaigns#index'
+  scope '', module: 'public' do
+    namespace :locations do
+      resource :data, only: [:show]
+    end
+
+    resources :locations, only: [:show]
+  end
 
   namespace :admin do
     root to: 'campaigns#index', as: :root
