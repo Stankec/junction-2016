@@ -5,7 +5,13 @@ $(document).ready(function() {
   setupCampaigns();
   setCampaigns();
   startRotation();
+  updateCampaigns(120 * 1000);
 });
+
+function updateCampaigns(interval) {
+  setCampaigns();
+  setTimeout(function() { updateCampaigns(interval); }, interval);
+}
 
 function setCampaigns() {
   var dataUrl = $('.campaigns').data('data-url');
