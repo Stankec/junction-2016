@@ -33,7 +33,7 @@ class CampaignSorter
       (location_campaigns.points) /
       (
         (extract(epoch from campaigns.updated_at) + #{TIME_OFFSET})^#{GRAVITY}
-      ) DESC
+      ) ASC
     SQL
   end
 end
