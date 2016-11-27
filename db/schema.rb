@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127000722) do
+ActiveRecord::Schema.define(version: 20161126224125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 20161127000722) do
   end
 
   add_foreign_key "location_campaigns", "campaigns"
-  add_foreign_key "location_campaigns", "mappings", column: "location_id"
+  add_foreign_key "location_campaigns", "locations"
 end

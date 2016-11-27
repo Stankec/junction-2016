@@ -1,3 +1,13 @@
 @import 'susy';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+body{
+  margin: 0;
+}
+
+.campaign {
+  height: 100vh;
+  width: 100vw;
+  border: 0;
+}
