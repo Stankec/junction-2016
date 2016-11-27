@@ -1,5 +1,4 @@
 function adsSuccess(data){
-  console.log(data);
   var url = data.events.event.image.large.url;
   if(data.events.event.image && data.events.event.image.large){
     url = data.events.event.image.large.url;
@@ -32,9 +31,9 @@ function events(query){
 
 function ajaxDataSuccess(data){
   var queries;
-  for(campaign in data.campaigns){
-    if(campaign.name === "Eventful"){
-      queries = campaign.tags;
+  for(var i = 0; i < data.campaigns.length; i++){
+    if(data.campaigns[i].name === "Eventful"){
+      queries = data.campaigns[i].tags;
       break;
     }
   }
@@ -42,7 +41,20 @@ function ajaxDataSuccess(data){
   events(queries[1]);
 }
 
-function init(dataUrl) {
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+$(document).ready(function(){
+  var dataUrl = getParameterByName("data_url");
   $.ajax({
     url: dataUrl,
     type: "GET",

@@ -23,9 +23,9 @@ function it(company){
 
 function ajaxDataSuccess(data){
   var companies;
-  for(campaign in data.campaigns){
-    if(campaign.name === "IT"){
-      companies = campaign.tags;
+  for(var i = 0; i < data.campaigns.length; i++){
+    if(data.campaigns[i].name === "IT"){
+      companies = data.campaigns[i].tags;
       break;
     }
   }
@@ -33,7 +33,20 @@ function ajaxDataSuccess(data){
   it(companies[1]);
 }
 
-function init(dataUrl) {
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+$(document).ready(function(){
+  var dataUrl = getParameterByName("data_url");
   $.ajax({
     url: dataUrl,
     type: "GET",

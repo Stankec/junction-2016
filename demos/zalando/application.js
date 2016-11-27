@@ -25,9 +25,9 @@ function ajaxAdsSuccess(data){
 
 function ajaxDataSuccess(data){
   var clothes;
-  for(campaign in data.campaigns){
-    if(campaign.name === "Zalando"){
-      clothes = campaign.tags;
+  for(var i = 0; i < data.campaigns.length; i++){
+    if(data.campaigns[i].name === "Zalando"){
+      clothes = data.campaigns[i].tags;
       break;
     }
   }
@@ -57,7 +57,20 @@ function ajaxDataSuccess(data){
   });
 }
 
-function init(dataUrl) {
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+$(document).ready(function(){
+  var dataUrl = getParameterByName("data_url");
   $.ajax({
     url: dataUrl,
     type: "GET",
