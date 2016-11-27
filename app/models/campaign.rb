@@ -13,6 +13,9 @@ class Campaign < ApplicationRecord
   include SiteUploader[:site]
   acts_as_taggable
 
+  has_many :location_campaigns, dependent: :destroy
+  has_many :locations, through: :location_campaigns
+
   validates :name, presence: true
   validates :site, presence: true
 

@@ -11,6 +11,9 @@
 #
 
 class Location < ApplicationRecord
+  has_many :location_campaigns, dependent: :destroy
+  has_many :campaigns, through: :location_campaigns
+
   validates :name, presence: true
   validates :location, presence: true
   validates :radius, presence: true
