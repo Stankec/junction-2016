@@ -11,6 +11,7 @@ class CampaignSorter
   def call
     location
       .campaigns
+      .select()
       .joins(:location_campaigns)
       .order(sort_sql)
   end
