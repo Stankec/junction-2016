@@ -23,12 +23,12 @@
 
 .slick-initialized .slick-slide {
   position: relative;
-  height: 98vh;
+  height: 96vh;
 }
 
 img {
   height: 50vh;
-  padding-top: 50%;
+  padding-top: 25vh;
   width: auto;
   margin: 0 auto; /* it centers any block level element */
 }

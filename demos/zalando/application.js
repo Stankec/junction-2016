@@ -66,7 +66,7 @@ $(document).ready(function() {
     arrows: false,
     pauseOnFocus: false,
     pauseOnHover: false,
-//    autoplay: true,
+    autoplay: true,
     autoplaySpeed: 10000,
   });
 });
