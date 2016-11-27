@@ -40,3 +40,22 @@ How to create distribution platforms. Some Finnish and some Russian.
 
 A data aggregation system which would allow a better insite into the preferences
 of citizens in certain areas.
+
+## How to run it
+
+You have to have [Docker](https://docker.com/) installed on your machine.
+If you don't have it, follow
+[this guide](https://docs.docker.com/engine/installation/).
+
+Go to the root of this project and run:
+
+```Bash
+docker-compose up
+```
+
+This comand will pull all the necessary docker images, create isolated
+containers and install all the required dependencies in them. After that it will
+start the application. (If you see the message 'Server is running' then it's
+done).
+
+Open your browser and to to `localhost:3000/admin`
